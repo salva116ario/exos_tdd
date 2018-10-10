@@ -10,41 +10,68 @@ public class ChallengeListTest{
 
   public static void testMoyenne(){
     // TODO @B
+      assertEquals("Moyenne de 10 et 20 = 15", 15, ChallengeList.moyenne(10,20));
+      assertEquals("Moyenne de 0 et 0 = 0", 0, ChallengeList.moyenne(0,0));
+      assertEquals("Moyenne de -10 et 10 = 0", 0, ChallengeList.moyenne(-10,10));
+      assertEquals("Moyenne de -100 et -50 = -75", -75, ChallengeList.moyenne(-100,-50));
   }
 
   public static void testPerimetreCarre(){
     // TODO @A
-    assertEquals("Test périmètre 4", 16, perimetreCarre(4));
-    assertEquals("Test périmètre 0", 0, perimetreCarre(0));
+    assertEquals("Test périmètre 4", 16, ChallengeList.perimetreCarre(4));
+    assertEquals("Test périmètre 0", 0, ChallengeList.perimetreCarre(0));
 
   }
 
   public static void testCommenceFini(){
     // TODO @B
+      assertTrue("PALUPA : commence et finit par PA", ChallengeList.commenceFini("PALUPA"));
+      assertFalse("LUPAPA : commence par LU, finit par PA", ChallengeList.commenceFini("LUPAPA"));
   }
 
   public static void testNonMonotone(){
     // TODO @A
-    assertEquals("Test Non Monotone AAAAAA", "AAAAA", false);
-    assertEquals("Test Non Monotone AACAAACA", "AACAAACA", true);
+    assertFalse("Test Non Monotone AAAAAA", ChallengeList.nonMonotone("AAAAAAAA"));
+    assertTrue("Test Non Monotone AACAAACA", ChallengeList.nonMonotone("ADAAAAA"));
 
   }
 
   public static void testTarif(){
     // TODO @B
+    assertEquals("Test tarif : 2 ans", "gratuit", ChallengeList.tarif(2));
+    assertEquals("Test tarif : -6 ans", "erreur", ChallengeList.tarif(-6));
+    assertEquals("Test tarif : 11 ans", "reduit", ChallengeList.tarif(11));
+    assertEquals("Test tarif : 43 ans", "plein", ChallengeList.tarif(43));
+
+
   }
 
   public static void testCaGele(){
     // TODO @A
+      assertEquals("temp = - 777", "erreur", ChallengeList.caGele(-777));
+      assertEquals("temp = - 50", "ça gèle", ChallengeList.caGele(-50));
+      assertEquals("temp = 5", "ça caille", ChallengeList.caGele(5));
+      assertEquals("temp = 42", "RAS", ChallengeList.caGele(42));
+      assertEquals("temp = 91", "ça bouille", ChallengeList.caGele(91));
   }
 
   public static void testFiltreShort(){
     // TODO @B
+      String[] test = {"ARBRE","SOLEIL","a","b","FROID","cc"};
+      String[] res = { "ARBRE","SOLEIL","FROID" };
+      assertEquals("ARBRE,SOLEIL,a,b,FROID,cc", res, ChallengeList.filtreShort(test));
   }
 
   public static void testFiltreLetter(){
     // TODO @A
-  }
+      String[] test = {"ARBRE","ABRIBUS","BRUTE","CACHALOT"};
+      String[] res = {"CACHALOT"};
+      assertEquals("Arbre,abribus,brute,cachalot : mot qui commence par c", res, ChallengeList.filtreLetter(test,'C'));
+
+
+      }
+
+
 
 
   /**

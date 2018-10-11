@@ -31,8 +31,8 @@ public class ChallengeListTest{
 
   public static void testNonMonotone(){
     // TODO @A
-    assertFalse("Test Non Monotone AAAAAA", ChallengeList.nonMonotone("AAAAAAAA"));
-    assertTrue("Test Non Monotone AACAAACA", ChallengeList.nonMonotone("ADAAAAA"));
+    assertFalse("Test Non Monotone AAAAAA -> FALSE", ChallengeList.nonMonotone("AAAAAA"));
+    assertTrue("Test Non Monotone AACAAACA -> TRUE", ChallengeList.nonMonotone("AACAAACA"));
 
   }
 
@@ -66,7 +66,7 @@ public class ChallengeListTest{
     // TODO @A
       String[] test = {"ARBRE","ABRIBUS","BRUTE","CACHALOT"};
       String[] res = {"CACHALOT"};
-      assertEquals("Arbre,abribus,brute,cachalot : mot qui commence par c", res, ChallengeList.filtreLetter(test,'C'));
+      assertEquals("Arbre,abribus,brute,cachalot : mot qui commence par C", res, ChallengeList.filtreLetter(test,'C'));
 
 
       }
